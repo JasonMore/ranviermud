@@ -37,16 +37,16 @@ var players,
 	saveint;
 
 
-function Client() {
+function MudClient() {
 	var self = this;
 	events.EventEmitter.call(this);
 }
 
-util.inherits(Client, events.EventEmitter);
+util.inherits(MudClient, events.EventEmitter);
 
-Client.prototype.write = function (stuff) {
+MudClient.prototype.write = function (data) {
 	//console.log('CLIENT', stuff);
-	this.emit('data', stuff);
+	this.emit('write', data);
 };
 
 function mudServer(clientConnected) {
@@ -62,7 +62,7 @@ function mudServer(clientConnected) {
 
 util.inherits(mudServer, events.EventEmitter);
 
-mudServer.prototype.Client = Client;
+mudServer.prototype.Client = MudClient;
 
 module.exports.init = function (cb) {
 	util.log("START - Loading entities");

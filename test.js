@@ -2,7 +2,7 @@ var _ = require('lodash');
 var TextEncoder = require('text-encoding').TextEncoder;
 var TextDecoder = require('text-encoding').TextDecoder;
 
-var mudServer = require('./mudServer');
+var mudServer = require('./index');
 
 mudServer.init(function (server) {
 	server.on("*", function (a, b, c) {
